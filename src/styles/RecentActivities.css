@@ -1,0 +1,95 @@
+.recent-activities-container {
+  background-color: #fff4ef;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ffcdb2;
+  padding: 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.activities-header {
+  background-color: #ff7629;
+  color: white;
+  padding: 15px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.activities-header h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.activities-count {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.recent-activities-list {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.activity-item {
+  padding: 15px;
+  border-bottom: 1px solid #ffcdb2;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-item:hover {
+  background-color: #ffebe0;
+}
+
+.activity-message {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.activity-time {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+}
+
+.no-activities-message {
+  padding: 30px 15px;
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.loading {
+  padding: 30px 15px;
+  text-align: center;
+  color: #ff7629;
+  font-weight: 600;
+}
+
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 15px;
+  border-radius: 4px;
+  margin: 15px;
+  text-align: center;
+  font-weight: 500;
+} 

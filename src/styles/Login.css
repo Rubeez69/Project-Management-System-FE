@@ -1,0 +1,151 @@
+/* Login page styles */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #d7d7f9; /* Light purple background */
+  padding: 20px;
+}
+
+.login-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+  color: #ff7629; /* Orange color for the title */
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 400;
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 8px;
+  text-align: left;
+  width: 100%;
+}
+
+.required {
+  color: #ff7629; /* Orange color for required asterisk */
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-top: 4px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.forgot-password a {
+  color: #ff7629; /* Orange color for the link */
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff7629; /* Orange button */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 15px auto;
+  transition: background-color 0.3s;
+  display: block;
+}
+
+.login-button:hover {
+  background-color: #e66a20; /* Slightly darker orange on hover */
+}
+
+.login-button:disabled {
+  background-color: #ffb599;
+  cursor: not-allowed;
+}
+
+.register-prompt {
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  margin-top: 30px;
+}
+
+.register-prompt a {
+  color: #ff7629; /* Orange color for the link */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.register-prompt a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.validation-error {
+  background-color: #fff8e1;
+  color: #ff8f00;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Loading indicator */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  font-size: 18px;
+  color: #ff7629;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+} 

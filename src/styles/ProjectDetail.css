@@ -1,0 +1,308 @@
+.project-detail-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation Tabs */
+.project-tabs {
+  display: flex;
+  padding: 15px;
+  gap: 15px;
+  background-color: #ff7629;
+  border-radius: 8px 8px 0 0;
+}
+
+.tab {
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.tab.active {
+  background-color: #f2c1ff;
+  color: #333;
+}
+
+.tab.highlight {
+  background-color: #ffff8d;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Project Info Section */
+.project-info-section {
+  background-color: #f5f7fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.project-info-row {
+  display: flex;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.project-info-label {
+  font-weight: 600;
+  width: 120px;
+  color: #333;
+}
+
+.project-info-value {
+  flex: 1;
+}
+
+.project-info-status-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.project-status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  margin: 0 15px;
+}
+
+.project-status-badge.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.project-status-badge.on_hold {
+  background-color: #FFC107;
+  color: #333;
+}
+
+.project-status-badge.completed {
+  background-color: #2196F3;
+  color: white;
+}
+
+.project-status-badge.archived {
+  background-color: #9E9E9E;
+  color: white;
+}
+
+.gantt-button {
+  background-color: #1a237e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.gantt-button:hover {
+  background-color: #0d1257;
+}
+
+/* Team Members Section */
+.team-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #e1bee7;
+  border-radius: 0;
+}
+
+.team-section-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+
+.team-action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.manage-team-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.manage-team-button:hover {
+  background-color: #388e3c;
+}
+
+.add-team-button {
+  background-color: #ff7629;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.add-team-button:hover {
+  background-color: #e65100;
+}
+
+/* Team Members Table */
+.team-members-table {
+  padding: 0 20px 20px;
+  margin-top: 0;
+  overflow-x: auto;
+  border-radius: 0 0 8px 8px;
+}
+
+.team-members-table table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  border-radius: 4px;
+}
+
+.team-members-table th {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 2px solid #ff7629;
+  font-weight: 600;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Center-align the Action column header */
+.team-members-table th:last-child {
+  text-align: center;
+}
+
+.team-members-table td {
+  padding: 16px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.team-members-table tr:last-child td {
+  border-bottom: none;
+}
+
+.member-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.member-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-button {
+  background-color: #f48fb1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  min-width: 100px;
+  text-align: center;
+}
+
+.task-button:hover {
+  background-color: #ec407a;
+}
+
+.remove-button {
+  background-color: #ffe082;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  min-width: 100px;
+  text-align: center;
+}
+
+.remove-button:hover {
+  background-color: #ffd54f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .project-info-status-container {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  
+  .team-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .team-action-buttons {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .manage-team-button, .add-team-button {
+    width: 100%;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 5px;
+  }
+} 

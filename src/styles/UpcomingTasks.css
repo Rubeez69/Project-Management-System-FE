@@ -1,0 +1,164 @@
+.upcoming-tasks-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+.upcoming-tasks-title {
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.upcoming-tasks-table-container {
+  overflow-x: auto;
+}
+
+.upcoming-tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.upcoming-tasks-table th {
+  background-color: #ff7629;
+  color: white;
+  text-align: left;
+  padding: 12px 15px;
+  font-weight: 500;
+}
+
+.upcoming-tasks-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.upcoming-tasks-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.upcoming-tasks-header {
+  display: flex;
+  background-color: #ff7629;
+  color: white;
+  font-weight: 500;
+  padding: 12px 15px;
+}
+
+.upcoming-task-row {
+  display: flex;
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.upcoming-task-row:last-child {
+  border-bottom: none;
+}
+
+.upcoming-task-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.task-name-col {
+  flex: 3;
+  display: flex;
+  align-items: center;
+}
+
+.due-date-col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.status-col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.actions-col {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-align: center;
+  min-width: 100px;
+}
+
+/* TODO status - gray */
+.status-badge.todo {
+  background-color: #e2e2e2;
+  color: #333;
+}
+
+/* In Progress status - orange */
+.status-badge.in-progress {
+  background-color: #ff7629;
+  color: white;
+}
+
+/* Completed status - light green */
+.status-badge.completed {
+  background-color: #b8e986;
+  color: #333;
+}
+
+.view-details-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.view-details-btn:hover {
+  background-color: #45a049;
+}
+
+.loading, .error {
+  padding: 15px;
+  text-align: center;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+.no-tasks {
+  text-align: center;
+  color: #666;
+  padding: 20px;
+}
+
+/* Styles for the deadlines tab */
+.deadlines-tab-content .upcoming-tasks-container {
+  margin-top: 0;
+  box-shadow: none;
+}
+
+.no-tasks-message {
+  padding: 30px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  border-radius: 0 0 8px 8px;
+} 

@@ -1,0 +1,300 @@
+/* Kanban Container */
+.tasks-container {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Project Selector Container - matching MyTeam style */
+.project-selector-container {
+  background-color: #fff4ef;
+  border: 1px solid #ffcdb2;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.project-selector-tasks {
+  max-width: 600px;
+  margin-bottom: 0;
+}
+
+/* Tasks Filter Bar - matching MyTeam style */
+.tasks-filter-bar {
+  background-color: #ff7629;
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tasks-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Kanban Board */
+.kanban-board {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  min-height: 500px;
+  padding: 0 0 20px 0;
+}
+
+/* Kanban Column - Improved styling */
+.kanban-column {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  width: 300px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-height: calc(100vh - 220px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.kanban-column:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.column-header {
+  background-color: #ff7629;
+  color: white;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.column-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.task-count {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.column-content {
+  padding: 15px;
+  overflow-y: auto;
+  flex-grow: 1;
+  background-color: #f8f9fa;
+  border-radius: 0 0 10px 10px;
+}
+
+.empty-column {
+  color: #999;
+  text-align: center;
+  padding: 30px 0;
+  font-style: italic;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.kanban-column.is-over {
+  background-color: #e9ecef;
+  box-shadow: 0 0 0 2px #ff7629;
+}
+
+/* Task Card */
+.task-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+  cursor: grab;
+  transition: box-shadow 0.2s, transform 0.2s;
+  border-left: 5px solid #ddd;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.task-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.task-card:active {
+  cursor: grabbing;
+}
+
+.task-header {
+  margin-bottom: 10px;
+}
+
+.task-title-kb {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.task-description {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.task-footer {
+  font-size: 13px;
+  color: #888;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 8px;
+}
+
+.due-date-label {
+  font-weight: 600;
+}
+
+/* Task Priority Colors */
+.task-card.high-priority {
+  border-left-color: #ff6b6b;
+  background-color: #fff0f0;
+}
+
+.task-card.medium-priority {
+  border-left-color: #ffd43b;
+  background-color: #fff9db;
+}
+
+.task-card.low-priority {
+  border-left-color: #69db7c;
+  background-color: #ebfbee;
+}
+
+/* Loading and Error states */
+.loading {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+  font-size: 16px;
+}
+
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 15px;
+  border-radius: 4px;
+  margin: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .kanban-board {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .kanban-column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* React Select Styling */
+.react-select-container {
+  flex-grow: 1;
+  min-width: 300px;
+}
+
+.react-select__control {
+  border: 1px solid #ddd !important;
+  box-shadow: none !important;
+  border-radius: 4px !important;
+  min-height: 40px !important;
+}
+
+.react-select__control:hover {
+  border-color: #ff7629 !important;
+}
+
+.react-select__control--is-focused {
+  border-color: #ff7629 !important;
+  box-shadow: 0 0 0 1px #ff7629 !important;
+}
+
+.react-select__menu {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 4px !important;
+}
+
+.react-select__option {
+  padding: 10px 15px !important;
+}
+
+.react-select__option--is-selected {
+  background-color: #ff7629 !important;
+}
+
+.react-select__option--is-focused {
+  background-color: #ffcdb2 !important;
+}
+
+.react-select__placeholder {
+  color: #999 !important;
+}
+
+.react-select__indicator-separator {
+  background-color: #ddd !important;
+}
+
+/* Back button styling */
+.back-button-container {
+  margin-bottom: 25px;
+  padding: 0 10px;
+}
+
+.back-button {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.back-button:hover {
+  background-color: #f8f9fa;
+  border-color: #ced4da;
+  color: #ff7629;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+.back-button:active {
+  background-color: #f1f3f5;
+  transform: translateY(1px);
+} 

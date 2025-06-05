@@ -1,0 +1,125 @@
+/* Verify OTP page styles */
+.verify-otp-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #e6e6fa; /* Light lavender background */
+  padding: 20px;
+}
+
+.verify-otp-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.verify-otp-title {
+  color: #ff7629; /* Orange color for the title */
+  text-align: center;
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.verify-otp-message {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 16px;
+  color: #333;
+}
+
+.otp-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-group label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.otp-input {
+  width: 65%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.resend-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.resend-button {
+  background: none;
+  border: none;
+  color: #ff7629; /* Orange color for the resend button */
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+}
+
+.resend-button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.timer {
+  font-size: 16px;
+  color: #333;
+}
+
+.verify-button {
+  width: 100%;
+  max-width: 200px;
+  padding: 12px;
+  background-color: #ff7629; /* Orange button */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.verify-button:hover {
+  background-color: #e66a20; /* Slightly darker orange on hover */
+}
+
+.verify-button:disabled {
+  background-color: #ffaa80;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+} 
