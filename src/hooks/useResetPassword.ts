@@ -17,9 +17,16 @@ export const useResetPassword = (): UseResetPasswordReturn => {
     console.log('Attempting to reset password');
 
     try {
-      // Get the reset token from localStorage
-      const token = localStorage.getItem('resetToken');
-      console.log('Reset token from localStorage:', token ? 'Found (length: ' + token.length + ')' : 'Not found');
+      // Get the reset token from localStorage or sessionStorage
+      let token = localStorage.getItem('resetToken');
+      
+      // If not found in localStorage, try sessionStorage
+      if (!token) {
+        token = sessionStorage.getItem('resetToken');
+        console.log('Reset token from sessionStorage:', token ? 'Found (length: ' + token.length + ')' : 'Not found');
+      } else {
+        console.log('Reset token from localStorage:', 'Found (length: ' + token.length + ')');
+      }
       
       if (!token) {
         throw new Error('Reset token not found. Please restart the password recovery process.');
@@ -36,9 +43,10 @@ export const useResetPassword = (): UseResetPasswordReturn => {
       
       // Check for various success status codes
       if (response.ok || response.status === 200 || response.status === 201 || response.status === 204) {
-        // Clear the reset token from localStorage
+        // Clear the reset token from both storages
         localStorage.removeItem('resetToken');
-        console.log('Reset token cleared from localStorage');
+        sessionStorage.removeItem('resetToken');
+        console.log('Reset token cleared from storage');
         return true;
       }
       

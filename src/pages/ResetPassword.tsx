@@ -13,9 +13,12 @@ const ResetPassword: React.FC = () => {
   const { resetPassword, isLoading, error } = useResetPassword();
 
   useEffect(() => {
-    // Check if reset token exists
-    const resetToken = sessionStorage.getItem('resetToken');
-    console.log('Reset token in session storage:', resetToken ? 'Yes (length: ' + resetToken.length + ')' : 'No');
+    // Check if reset token exists in either localStorage or sessionStorage
+    const resetTokenLocal = localStorage.getItem('resetToken');
+    const resetTokenSession = sessionStorage.getItem('resetToken');
+    const resetToken = resetTokenLocal || resetTokenSession;
+    
+    console.log('Reset token in storage:', resetToken ? 'Yes (length: ' + resetToken.length + ')' : 'No');
     
     if (!resetToken) {
       console.log('No reset token found, redirecting to forgot-password');

@@ -5,6 +5,7 @@ import { useAuth } from '../hooks/useAuth';
 import ProjectManagerDropdown, { ProjectOption } from '../components/ProjectManagerDropdown';
 import ProjectTaskService, { ProjectTask, CreateTaskRequest } from '../services/ProjectTaskService';
 import CreateTaskModal from '../components/CreateTaskModal';
+import EditTaskModal from '../components/EditTaskModal';
 import '../styles/TaskManagement.css';
 
 // Task view types
@@ -28,6 +29,8 @@ const TaskManagement: React.FC = () => {
   const [viewType, setViewType] = useState<ViewType>('table');
   const [activeTab, setActiveTab] = useState<TaskTabType>('all');
   const [isCreateTaskModalOpen, setIsCreateTaskModalOpen] = useState<boolean>(false);
+  const [isEditTaskModalOpen, setIsEditTaskModalOpen] = useState<boolean>(false);
+  const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null);
 
   // Handle project selection from dropdown
   const handleProjectSelect = useCallback((selected: ProjectOption | null) => {
@@ -128,8 +131,8 @@ const TaskManagement: React.FC = () => {
 
   // Handle edit task
   const handleEditTask = (taskId: number) => {
-    // Navigate to edit task page
-    alert(`Navigate to edit task ${taskId}`);
+    setSelectedTaskId(taskId);
+    setIsEditTaskModalOpen(true);
   };
 
   // Handle archive task
@@ -207,6 +210,26 @@ const TaskManagement: React.FC = () => {
     } catch (err: any) {
       console.error('Error creating task:', err);
       return Promise.reject(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Handle task update success
+  const handleTaskUpdated = async () => {
+    if (!selectedProjectId) return;
+    
+    try {
+      setLoading(true);
+      // Refresh the tasks list
+      const response = await ProjectTaskService.getAllProjectTasks(selectedProjectId, currentPage);
+      setTasks(response.content);
+      setTotalPages(response.totalPages);
+      setTotalElements(response.totalElements);
+      setError(null);
+    } catch (err: any) {
+      console.error('Error refreshing tasks after update:', err);
+      setError('Failed to refresh tasks. Please try again later.');
     } finally {
       setLoading(false);
     }
@@ -458,6 +481,17 @@ const TaskManagement: React.FC = () => {
             onSubmit={handleCreateTask}
             projectId={selectedProjectId}
             projectName={selectedProjectName}
+          />
+        )}
+        
+        {/* Edit Task Modal */}
+        {selectedProjectId && selectedTaskId && (
+          <EditTaskModal
+            isOpen={isEditTaskModalOpen}
+            onClose={() => setIsEditTaskModalOpen(false)}
+            onSuccess={handleTaskUpdated}
+            taskId={selectedTaskId}
+            projectId={selectedProjectId}
           />
         )}
       </div>

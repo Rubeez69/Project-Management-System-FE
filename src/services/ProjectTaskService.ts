@@ -40,6 +40,44 @@ export interface CreateTaskRequest {
   assigneeId?: number;
 }
 
+export interface UpdateTaskRequest {
+  title: string;
+  description: string;
+  startDate: string;
+  dueDate: string;
+  priority: 'LOW' | 'MEDIUM' | 'HIGH';
+  status: 'TODO' | 'IN_PROGRESS' | 'COMPLETED' | 'ARCHIVED';
+  assigneeId?: number;
+}
+
+export interface TaskDetail {
+  id: number;
+  title: string;
+  description: string;
+  priority: 'LOW' | 'MEDIUM' | 'HIGH';
+  status: 'TODO' | 'IN_PROGRESS' | 'COMPLETED' | 'ARCHIVED';
+  startDate: string;
+  dueDate: string;
+  projectId: number;
+  projectName: string;
+  assignee: {
+    id: number;
+    name: string;
+    email: string;
+    role: string;
+    profile: string | null;
+  } | null;
+  createdBy: {
+    id: number;
+    name: string;
+    email: string;
+    role: string;
+    profile: string | null;
+  };
+  createdAt: string;
+  updatedAt: string;
+}
+
 const ProjectTaskService = {
   /**
    * Create a new task for a project
@@ -145,6 +183,72 @@ const ProjectTaskService = {
       return true;
     } catch (error) {
       console.error(`Error updating task ${taskId} status:`, error);
+      throw error;
+    }
+  },
+
+  /**
+   * Get task details by ID
+   * @param taskId ID of the task
+   * @returns Promise with task details
+   */
+  getTaskById: async (taskId: number): Promise<TaskDetail> => {
+    try {
+      const url = `${baseUrl}/${Endpoint.UPDATE_TASK_STATUS}/${taskId}`;
+      
+      console.log(`Fetching task details for task ID: ${taskId}`);
+      
+      const response = await authenticatedFetch(url);
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        const errorMessage = errorData.message || `Failed to fetch task details: ${response.status}`;
+        throw new Error(errorMessage);
+      }
+      
+      const data: ApiResponse<TaskDetail> = await response.json();
+      return data.result;
+    } catch (error) {
+      console.error(`Error fetching task details for task ${taskId}:`, error);
+      throw error;
+    }
+  },
+
+  /**
+   * Update task details
+   * @param taskId ID of the task
+   * @param projectId ID of the project
+   * @param taskData Updated task data
+   * @returns Promise with updated task
+   */
+  updateTask: async (
+    taskId: number,
+    projectId: number,
+    taskData: UpdateTaskRequest
+  ): Promise<TaskDetail> => {
+    try {
+      const url = `${baseUrl}/${Endpoint.UPDATE_TASK_STATUS}/${taskId}/projects/${projectId}/edit-task`;
+      
+      console.log(`Updating task ${taskId} in project ${projectId}`);
+      
+      const response = await authenticatedFetch(url, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(taskData),
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        const errorMessage = errorData.message || `Failed to update task: ${response.status}`;
+        throw new Error(errorMessage);
+      }
+      
+      const data: ApiResponse<TaskDetail> = await response.json();
+      return data.result;
+    } catch (error) {
+      console.error(`Error updating task ${taskId}:`, error);
       throw error;
     }
   }

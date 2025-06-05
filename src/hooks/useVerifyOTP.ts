@@ -52,10 +52,11 @@ export const useVerifyOTP = (): UseVerifyOTPReturn => {
         }
       }
 
-      // Store the token in localStorage
+      // Store the token in both localStorage and sessionStorage
       if (token) {
         localStorage.setItem('resetToken', token);
-        console.log('Token stored in localStorage:', token.substring(0, 10) + '...');
+        sessionStorage.setItem('resetToken', token);
+        console.log('Token stored in localStorage and sessionStorage');
         return { success: true, token };
       } else {
         console.error('No token found in response');
