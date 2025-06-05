@@ -134,6 +134,7 @@ const ProjectManagement: React.FC = () => {
 
   // Handle project update success
   const handleProjectUpdated = () => {
+    setSelectedProjectId(null); // Clear the selected project ID to show all projects
     fetchProjects();
   };
 

@@ -224,6 +224,49 @@ textarea {
     gap: 8px;
 }
 
+/* Default button styling */
+.default-button {
+  min-width: 120px;
+  background-color: #607d8b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.default-button:hover {
+  background-color: #546e7a;
+}
+
+.default-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* Loading state */
+.modal-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #666;
+}
+
+/* Priority dropdown specific styling */
+.form-group:has(#priority) {
+  display: flex;
+  align-items: center;
+}
+
 
 
 
